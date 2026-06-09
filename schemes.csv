@@ -1,0 +1,21 @@
+Scheme,MinAge,MaxAge,IncomeLimit,Category,Benefit
+PM Scholarship,18,25,500000,Student,Scholarship up to ₹50000
+National Fellowship,18,35,600000,Student,Higher Education Support
+Education Grant Scheme,18,30,300000,Student,Educational Assistance
+Skill Development Program,18,35,400000,Youth,Free Skill Training
+Employment Support Scheme,18,40,400000,Youth,Job Assistance
+Startup Support Scheme,21,45,800000,Entrepreneur,Startup Funding
+MSME Promotion Scheme,21,60,1000000,Entrepreneur,Business Development Support
+Farmer Support Scheme,18,60,1000000,Farmer,Agricultural Subsidy
+PM Kisan Assistance,18,65,1000000,Farmer,Direct Financial Support
+Irrigation Support Program,18,65,1200000,Farmer,Irrigation Benefits
+Women Empowerment Scheme,18,55,600000,Women,Financial Assistance
+Women Entrepreneurship Scheme,21,55,800000,Women,Business Assistance
+Senior Citizen Pension,60,100,500000,Senior,Pension Benefits
+Healthcare Support Scheme,18,100,500000,General,Medical Coverage
+Housing Assistance Scheme,21,60,600000,General,Affordable Housing
+Health Insurance Scheme,18,100,700000,General,Health Insurance Coverage
+Digital Literacy Program,18,50,500000,General,Computer Training
+Disability Assistance Scheme,18,100,800000,Special,Financial Support
+Rural Development Scheme,18,65,700000,Rural,Infrastructure Benefits
+Employment Guarantee Scheme,18,60,500000,Rural,Wage Employment
