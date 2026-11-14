@@ -1,5 +1,5 @@
 streamlit
-plotly
 pandas
-openai
+plotly
 streamlit-option-menu
+google-genai
