@@ -1,21 +1,40 @@
-Scheme,MinAge,MaxAge,IncomeLimit,Category,Benefit
-PM Scholarship,18,25,500000,Student,Scholarship up to ₹50000
-National Fellowship,18,35,600000,Student,Higher Education Support
-Education Grant Scheme,18,30,300000,Student,Educational Assistance
-Skill Development Program,18,35,400000,Youth,Free Skill Training
-Employment Support Scheme,18,40,400000,Youth,Job Assistance
-Startup Support Scheme,21,45,800000,Entrepreneur,Startup Funding
-MSME Promotion Scheme,21,60,1000000,Entrepreneur,Business Development Support
-Farmer Support Scheme,18,60,1000000,Farmer,Agricultural Subsidy
-PM Kisan Assistance,18,65,1000000,Farmer,Direct Financial Support
-Irrigation Support Program,18,65,1200000,Farmer,Irrigation Benefits
-Women Empowerment Scheme,18,55,600000,Women,Financial Assistance
-Women Entrepreneurship Scheme,21,55,800000,Women,Business Assistance
-Senior Citizen Pension,60,100,500000,Senior,Pension Benefits
-Healthcare Support Scheme,18,100,500000,General,Medical Coverage
-Housing Assistance Scheme,21,60,600000,General,Affordable Housing
-Health Insurance Scheme,18,100,700000,General,Health Insurance Coverage
-Digital Literacy Program,18,50,500000,General,Computer Training
-Disability Assistance Scheme,18,100,800000,Special,Financial Support
-Rural Development Scheme,18,65,700000,Rural,Infrastructure Benefits
-Employment Guarantee Scheme,18,60,500000,Rural,Wage Employment
+Scheme,MinAge,MaxAge,IncomeLimit,Category,Benefit,StateScope,OfficialURL,EligibilityNote
+PM Scholarship,18,25,500000,Student,Scholarship up to ₹50000,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+National Fellowship,18,35,600000,Student,Higher Education Support,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Education Grant Scheme,18,30,300000,Student,Educational Assistance,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Skill Development Program,18,35,400000,Youth,Free Skill Training,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Employment Support Scheme,18,40,400000,Youth,Job Assistance,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Startup Support Scheme,21,45,800000,Entrepreneur,Startup Funding,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+MSME Promotion Scheme,21,60,1000000,Entrepreneur,Business Development Support,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Farmer Support Scheme,18,60,1000000,Farmer,Agricultural Subsidy,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+PM Kisan Assistance,18,65,1000000,Farmer,Direct Financial Support,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Irrigation Support Program,18,65,1200000,Farmer,Irrigation Benefits,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Women Empowerment Scheme,18,55,600000,Women,Financial Assistance,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Women Entrepreneurship Scheme,21,55,800000,Women,Business Assistance,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Senior Citizen Pension,60,100,500000,Senior,Pension Benefits,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Healthcare Support Scheme,18,100,500000,General,Medical Coverage,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Housing Assistance Scheme,21,60,600000,General,Affordable Housing,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Health Insurance Scheme,18,100,700000,General,Health Insurance Coverage,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Digital Literacy Program,18,50,500000,General,Computer Training,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Disability Assistance Scheme,18,100,800000,Special,Financial Support,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Rural Development Scheme,18,65,700000,Rural,Infrastructure Benefits,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+Employment Guarantee Scheme,18,60,500000,Rural,Wage Employment,Central / verify applicable state,,Illustrative database entry. Verify current eligibility and conditions on the official portal.
+PM-KISAN,18,100,-1,Farmer,Income support to eligible landholding farmer families,Central,https://pmkisan.gov.in/,Eligibility depends on land records and exclusion rules; verify on the official portal.
+Pradhan Mantri Fasal Bima Yojana (PMFBY),18,100,-1,Farmer,Crop insurance for notified crops and areas,Central / State implementation,https://pmfby.gov.in/,"Available crops, seasons, deadlines and farmer contribution vary by notification and state."
+Ayushman Bharat – PM-JAY,0,100,-1,Healthcare,Health cover for eligible families at empanelled hospitals,Central / State implementation,https://pmjay.gov.in/,Eligibility is based on notified beneficiary databases and state rules; age/income alone do not establish eligibility.
+Pradhan Mantri Awas Yojana – Gramin (PMAY-G),18,100,-1,Housing,Rural housing assistance for eligible households,Central / State implementation,https://pmayg.nic.in/,Selection follows deprivation/priority criteria and official beneficiary lists.
+Pradhan Mantri Awas Yojana – Urban (PMAY-U),18,100,-1,Housing,Support for eligible urban housing beneficiaries,Central / State implementation,https://pmay-urban.gov.in/,"Components, income groups and application windows depend on current guidelines and location."
+Pradhan Mantri MUDRA Yojana (PMMY),18,100,-1,Entrepreneur,Loans for eligible micro and small business activities,Central,https://www.mudra.org.in/,"Loan approval, amount and terms are decided by the lending institution; this is not a grant."
+PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi),18,100,-1,Entrepreneur,Working-capital loan support for eligible street vendors,Central / Urban Local Body,https://pmsvanidhi.mohua.gov.in/,"Vendor status, certificates/letters and lending rules apply; check the portal or ULB."
+Pradhan Mantri Kaushal Vikas Yojana (PMKVY),15,100,-1,Youth,Skill training and certification through approved training pathways,Central,https://www.skillindiadigital.gov.in/,"Courses, age criteria and enrolment availability vary by training programme."
+Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA),18,100,-1,Rural,Demand-based wage employment for rural households,Central / State implementation,https://nrega.nic.in/,Adult members of rural households may apply for a job card; work is subject to the Act and local process.
+Sukanya Samriddhi Account,0,10,-1,Women,Small-savings account for a girl child,Central,https://www.indiapost.gov.in/,Account opening age and guardian/depositor conditions apply; consult India Post or an authorised bank.
+Pradhan Mantri Matru Vandana Yojana (PMMVY),18,100,-1,Women,Maternity benefit for eligible pregnant and lactating women,Central / State implementation,https://pmmvy.wcd.gov.in/,"Benefit conditions, exclusions and documentation apply; verify current scheme guidelines."
+Atal Pension Yojana (APY),18,40,-1,Senior,Contributory pension scheme with pension options at eligible age,Central,https://www.npscra.nsdl.co.in/scheme-details.php,"Joining age, bank account and tax-payer eligibility conditions apply; contributions depend on joining age."
+National Social Assistance Programme (NSAP),0,100,-1,Senior,Social assistance pensions for eligible groups,Central / State top-ups,https://nsap.nic.in/,"Age, poverty-status and other criteria differ by pension component and state top-ups."
+PM Vishwakarma,18,100,-1,Entrepreneur,Support for eligible traditional artisans and craftspeople,Central,https://pmvishwakarma.gov.in/,"Eligible trades, family restrictions, registration and verification conditions apply."
+Stand-Up India,18,100,-1,Entrepreneur,Bank loans for eligible greenfield enterprises,Central,https://www.standupmitra.in/,"Applicant category, ownership/control, project and bank appraisal requirements apply."
+National Means-cum-Merit Scholarship Scheme (NMMSS),0,100,-1,Student,Scholarship support for selected students,Central / State selection,https://scholarships.gov.in/,"Selection, school/class, examination and family-income criteria apply; check current notice."
+Post-Matric Scholarship for SC Students,0,100,-1,Student,Financial assistance for eligible SC students after matriculation,Central / State implementation,https://scholarships.gov.in/,"Income ceiling, course, institution and state-specific rules apply; verify current guidelines."
+Post-Matric Scholarship for ST Students,0,100,-1,Student,Financial assistance for eligible ST students after matriculation,Central / State implementation,https://scholarships.gov.in/,"Income ceiling, course, institution and state-specific rules apply; verify current guidelines."
+PM Formalisation of Micro Food Processing Enterprises (PMFME),18,100,-1,Entrepreneur,Credit-linked support and capacity building for eligible micro food enterprises,Central / State implementation,https://pmfme.mofpi.gov.in/,"Application windows, eligible activities and subsidy conditions are governed by current guidelines."
