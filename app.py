@@ -29,7 +29,7 @@ UI = {
         "search":"Search schemes", "all":"All", "details":"Scheme details and official links",
         "benefit":"Benefit", "official":"Official portal", "survey_age":"Survey age",
         "gender":"Gender", "submit":"Submit Survey", "success":"Survey submitted successfully!",
-        "no_key":"AI is unavailable because OPENROUTER_API_KEY is not configured in Streamlit secrets."
+        "no_key":"AI is unavailable because GEMINI_API_KEY is not configured in Streamlit secrets."
     },
     "తెలుగు": {
         "language":"భాష", "dashboard":"డ్యాష్‌బోర్డ్", "eligibility":"అర్హత తనిఖీ",
@@ -43,7 +43,7 @@ UI = {
         "search":"పథకాలను వెతకండి", "all":"అన్నీ", "details":"పథక వివరాలు మరియు అధికారిక లింకులు",
         "benefit":"ప్రయోజనం", "official":"అధికారిక వెబ్‌సైట్", "survey_age":"సర్వే వయస్సు",
         "gender":"లింగం", "submit":"సర్వే సమర్పించండి", "success":"సర్వే విజయవంతంగా సమర్పించబడింది!",
-        "no_key":"Streamlit secrets లో OPENROUTER_API_KEY లేకపోవడంతో AI అందుబాటులో లేదు."
+        "no_key":"Streamlit secrets లో GEMINI_API_KEY లేకపోవడంతో AI అందుబాటులో లేదు."
     },
     "हिन्दी": {
         "language":"भाषा", "dashboard":"डैशबोर्ड", "eligibility":"पात्रता जाँच",
@@ -57,7 +57,7 @@ UI = {
         "search":"योजनाएँ खोजें", "all":"सभी", "details":"योजना विवरण और आधिकारिक लिंक",
         "benefit":"लाभ", "official":"आधिकारिक पोर्टल", "survey_age":"सर्वेक्षण आयु",
         "gender":"लिंग", "submit":"सर्वेक्षण जमा करें", "success":"सर्वेक्षण सफलतापूर्वक जमा हुआ!",
-        "no_key":"Streamlit secrets में OPENROUTER_API_KEY सेट नहीं है, इसलिए AI उपलब्ध नहीं है।"
+        "no_key":"Streamlit secrets में GEMINI_API_KEY सेट नहीं है, इसलिए AI उपलब्ध नहीं है।"
     }
 }
 
@@ -97,9 +97,12 @@ except (FileNotFoundError, pd.errors.EmptyDataError):
 
 client = None
 try:
-    api_key = st.secrets.get("OPENROUTER_API_KEY", "")
+    api_key = st.secrets.get("GEMINI_API_KEY", "")
     if api_key:
-        client = OpenAI(api_key=api_key, base_url="https://openrouter.ai/api/v1")
+        client = OpenAI(
+            api_key=api_key,
+            base_url="https://googleapis.com"
+        )
 except Exception:
     client = None
 
@@ -178,85 +181,3 @@ elif selected == t["eligibility"]:
             for _, row in matches.iterrows():
                 with st.expander(str(row["Scheme"])):
                     st.write(row["EligibilityNote"])
-                    if pd.notna(row["OfficialURL"]) and str(row["OfficialURL"]).startswith("https://"):
-                        st.link_button(t["official"], str(row["OfficialURL"]))
-        else:
-            st.warning(t["no_match"])
-    if "last_matches" in st.session_state and client is not None:
-        if st.button("🤖 Get AI explanation in " + language):
-            m = st.session_state["last_matches"]
-            profile = st.session_state.get("profile", {})
-            prompt = f"User profile: {profile}\nPossible schemes from local dataset:\n{m[['Scheme','Benefit','EligibilityNote']].to_string(index=False)}"
-            try:
-                response = client.chat.completions.create(
-                    model="openai/gpt-4o-mini",
-                    messages=[
-                        {"role":"system","content":f"You are GovScheme AI. Respond only in {LANGUAGES[language]}. Explain that matches are preliminary, do not invent eligibility rules, distinguish dataset filters from official rules, and direct the user to each official portal. If data is missing, say so."},
-                        {"role":"user","content":prompt}
-                    ]
-                )
-                st.write(response.choices[0].message.content)
-            except Exception as exc:
-                st.error(f"AI request failed: {exc}")
-
-elif selected == t["survey"]:
-    st.header(f"📝 {t['survey']}")
-    with st.form("community_survey"):
-        age = st.number_input(t["survey_age"], min_value=1, max_value=110, value=25)
-        gender = st.selectbox(t["gender"], ["Female", "Male", "Other", "Prefer not to say"])
-        occupation = st.text_input(t["occupation"])
-        income = st.number_input(t["income"], min_value=0, value=0, step=10000)
-        state = st.text_input(t["state"])
-        submitted = st.form_submit_button(t["submit"])
-    if submitted:
-        new_row = pd.DataFrame([{"Age": age, "Gender": gender, "Occupation": occupation, "Income": income, "State": state}])
-        header = not os.path.exists("survey.csv") or os.path.getsize("survey.csv") == 0
-        new_row.to_csv("survey.csv", mode="a", header=header, index=False)
-        survey_df = pd.concat([survey_df, new_row], ignore_index=True)
-        st.success(t["success"])
-    if len(survey_df):
-        c1, c2 = st.columns(2)
-        with c1:
-            st.plotly_chart(px.histogram(survey_df, x="Age", title="Age distribution"), use_container_width=True)
-        with c2:
-            st.plotly_chart(px.pie(survey_df, names="Gender", title="Gender distribution"), use_container_width=True)
-        if "State" in survey_df.columns:
-            state_counts = survey_df["State"].value_counts().rename_axis("State").reset_index(name="Count")
-            st.plotly_chart(px.bar(state_counts, x="State", y="Count", title="State-wise participation"), use_container_width=True)
-        st.download_button("📥 Download Survey Data", survey_df.to_csv(index=False), "survey_data.csv", "text/csv")
-
-elif selected == t["assistant"]:
-    st.header(f"🤖 {t['assistant']}")
-    st.caption("The assistant will answer in your selected language.")
-    question = st.text_area(t["ask"])
-    if st.button(t["send"], type="primary"):
-        if not question.strip():
-            st.warning("Please enter a question.")
-        elif client is None:
-            st.error(t["no_key"])
-        else:
-            # Give the model the local scheme directory as context to reduce unsupported claims.
-            directory = scheme_df[["Scheme", "Category", "Benefit", "StateScope", "OfficialURL", "EligibilityNote"]].to_string(index=False)
-            try:
-                response = client.chat.completions.create(
-                    model="openai/gpt-4o-mini",
-                    messages=[
-                        {"role":"system","content":f"""You are GovScheme AI, an Indian government scheme information assistant.
-Reply in {LANGUAGES[language]}. Use simple, accessible language.
-Use the supplied directory as a starting point, not as proof of current eligibility.
-Never invent deadlines, benefit amounts, eligibility criteria or application status.
-When relevant, provide the official portal URL included in the directory.
-Clearly say when information needs verification. Do not ask for Aadhaar, bank account numbers,
-OTP, passwords or other sensitive personal information.
-Scheme directory:\n{directory}"""},
-                        {"role":"user","content":question}
-                    ]
-                )
-                st.success("Response generated")
-                st.write(response.choices[0].message.content)
-            except Exception as exc:
-                st.error(f"AI request failed: {exc}")
-
-st.divider()
-st.caption("Developed for CSP Project | Data Analytics for Community Development")
-st.caption(t["disclaimer"])
