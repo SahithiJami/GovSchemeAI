@@ -296,7 +296,7 @@ def ask_gemini(system_prompt, user_prompt):
 
     response = gemini_client.models.generate_content(
 
-        model="gemini-2.5-flash",
+        model="gemini-3.8-flash",
 
         contents=user_prompt,
 
