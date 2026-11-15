@@ -285,6 +285,21 @@ def ask_gemini(system_prompt, user_prompt):
 
         else:
             raise ValueError(f"Gemini error: {exc}")
+        # GEMINI CLIENT CONFIGURATION
+
+gemini_client = None
+
+try:
+    api_key = st.secrets.get(
+        "GEMINI_API_KEY",
+        os.getenv("GEMINI_API_KEY", "")
+    )
+
+    if api_key:
+        gemini_client = genai.Client(api_key=api_key)
+
+except Exception as e:
+    st.warning(f"Gemini configuration error: {e}")
 # =====================================================
 # 9. NAVIGATION MENU
 # =====================================================
@@ -857,7 +872,9 @@ elif selected == t["assistant"]:
                     user_prompt=question
                 )
 
-                st.success("AI response generated successfully!")
+                st.success(
+                    "AI response generated successfully!"
+                )
 
                 st.subheader(t["response"])
 
@@ -865,8 +882,9 @@ elif selected == t["assistant"]:
 
             except Exception as e:
 
-                st.error(f"Gemini AI request failed: {e}")
-
+                st.error(
+                    f"Gemini AI request failed: {e}"
+                )
 
 # =====================================================
 # 14. FOOTER
