@@ -247,7 +247,7 @@ import streamlit as st
 from google import genai
 from google.genai import types
 
-GEMINI_MODEL = "gemini-2.5-flash-lite"
+GEMINI_MODEL = "gemini-3.1-flash-lite"
 
 gemini_client = None
 
