@@ -156,8 +156,8 @@ UI = {
     }
 }
 
-# Other languages currently use English interface labels.
-# Gemini responses will still be generated in the selected language.
+# Other languages use English interface labels.
+# Gemini responses are generated in the selected language.
 
 for language_name in LANGUAGES:
     UI.setdefault(language_name, UI["English"])
@@ -283,7 +283,7 @@ except Exception as exc:
 
 
 # =====================================================
-# 8. GEMINI AI FUNCTION
+# 8. GEMINI AI FUNCTION WITH ERROR HANDLING
 # =====================================================
 
 def ask_gemini(system_prompt, user_prompt):
@@ -294,27 +294,71 @@ def ask_gemini(system_prompt, user_prompt):
             "Gemini API key is not configured."
         )
 
-    response = gemini_client.models.generate_content(
+    try:
 
-        model="gemini-3.8-flash",
+        response = gemini_client.models.generate_content(
 
-        contents=user_prompt,
+            model="gemini-3.8-flash",
 
-        config=types.GenerateContentConfig(
+            contents=user_prompt,
 
-            system_instruction=system_prompt,
+            config=types.GenerateContentConfig(
 
-            temperature=0.3
-        )
-    )
+                system_instruction=system_prompt,
 
-    if not response.text:
-
-        raise ValueError(
-            "Gemini returned an empty response."
+                temperature=0.3
+            )
         )
 
-    return response.text
+        if not response.text:
+
+            raise ValueError(
+                "Gemini returned an empty response."
+            )
+
+        return response.text
+
+    except Exception as exc:
+
+        error_message = str(exc).lower()
+
+        if (
+            "429" in error_message
+            or "resource_exhausted" in error_message
+            or "quota" in error_message
+        ):
+
+            raise ValueError(
+                "Gemini AI request limit reached. "
+                "Please wait 40 seconds and try again. "
+                "If the problem continues, check your Gemini API quota "
+                "and billing details in Google AI Studio."
+            )
+
+        elif (
+            "api key" in error_message
+            or "permission_denied" in error_message
+            or "401" in error_message
+            or "403" in error_message
+        ):
+
+            raise ValueError(
+                "Gemini API authentication failed. "
+                "Please check your API key and project settings."
+            )
+
+        elif "404" in error_message:
+
+            raise ValueError(
+                "The selected Gemini model is unavailable. "
+                "Please check the model name in Google AI Studio."
+            )
+
+        else:
+
+            raise ValueError(
+                f"Gemini service error: {exc}"
+            )
 
 
 # =====================================================
@@ -351,8 +395,6 @@ if selected == t["dashboard"]:
 
     st.header(f"📊 {t['dashboard']}")
 
-    # Dashboard statistics
-
     col1, col2, col3 = st.columns(3)
 
     col1.metric(
@@ -371,8 +413,6 @@ if selected == t["dashboard"]:
     )
 
     st.divider()
-
-    # Charts
 
     left, right = st.columns(2)
 
@@ -417,8 +457,6 @@ if selected == t["dashboard"]:
             use_container_width=True
         )
 
-    # Scheme details
-
     st.subheader(
         f"📋 {t['details']}"
     )
@@ -443,8 +481,6 @@ if selected == t["dashboard"]:
 
     view = scheme_df.copy()
 
-    # Search filter
-
     if query:
 
         view = view[
@@ -460,8 +496,6 @@ if selected == t["dashboard"]:
                 na=False
             )
         ]
-
-    # Category filter
 
     if chosen_category != t["all"]:
 
@@ -484,8 +518,6 @@ if selected == t["dashboard"]:
 
         hide_index=True
     )
-
-    # Expandable scheme details
 
     for _, row in view.iterrows():
 
@@ -590,8 +622,6 @@ elif selected == t["eligibility"]:
         t["state_note"]
     )
 
-    # Check eligibility
-
     if st.button(
         t["check"],
         type="primary"
@@ -612,9 +642,6 @@ elif selected == t["eligibility"]:
             errors="coerce"
         )
 
-        # IncomeLimit = -1 means no numeric
-        # income filter is encoded in this dataset.
-
         matches = scheme_df[
             (min_age <= age)
             &
@@ -633,8 +660,6 @@ elif selected == t["eligibility"]:
                 matches["Category"] == category
             ]
 
-        # Save results in session state
-
         st.session_state["last_matches"] = matches
 
         st.session_state["profile"] = {
@@ -646,8 +671,6 @@ elif selected == t["eligibility"]:
             "occupation": occupation
 
         }
-
-        # Display possible matches
 
         if len(matches) > 0:
 
@@ -701,8 +724,6 @@ elif selected == t["eligibility"]:
             st.warning(
                 t["no_match"]
             )
-
-    # Gemini eligibility explanation
 
     if (
         "last_matches" in st.session_state
@@ -827,8 +848,6 @@ elif selected == t["survey"]:
             t["submit"]
         )
 
-    # Save survey data
-
     if submitted:
 
         new_row = pd.DataFrame(
@@ -868,8 +887,6 @@ elif selected == t["survey"]:
         st.success(
             t["success"]
         )
-
-    # Survey analytics
 
     if len(survey_df) > 0:
 
@@ -915,8 +932,6 @@ elif selected == t["survey"]:
                 use_container_width=True
             )
 
-        # State-wise participation
-
         if "State" in survey_df.columns:
 
             state_counts = (
@@ -944,8 +959,6 @@ elif selected == t["survey"]:
                 fig,
                 use_container_width=True
             )
-
-        # Download survey data
 
         csv_data = survey_df.to_csv(
             index=False
@@ -983,8 +996,6 @@ elif selected == t["assistant"]:
         f"AI responses will be generated in {LANGUAGES[language]}."
     )
 
-    # User question
-
     question = st.text_area(
         t["ask"],
         height=120,
@@ -1009,8 +1020,6 @@ elif selected == t["assistant"]:
             )
 
         else:
-
-            # Provide scheme dataset to Gemini
 
             directory = scheme_df[
                 [
