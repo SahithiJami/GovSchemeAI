@@ -238,56 +238,53 @@ except (FileNotFoundError, pd.errors.EmptyDataError):
 
 # =====================================================
 # 7. GEMINI CONFIGURATION
-# =====================================================
 
-gemini_client = None
-
-try:
-
-    api_key = st.secrets.get(
-        "GEMINI_API_KEY",
-        os.getenv("GEMINI_API_KEY", "")
-    )
-
-    if api_key:
-        gemini_client = genai.Client(
-            api_key=api_key
-        )
-
-except Exception as e:
-    st.warning(f"Gemini configuration error: {e}")
-
-
-# =====================================================
-# 8. GEMINI AI FUNCTION
-# =====================================================
 
 def ask_gemini(system_prompt, user_prompt):
 
     if gemini_client is None:
         raise ValueError(
-            "Gemini API key is missing. Configure GEMINI_API_KEY."
+            "Gemini API key is not configured."
         )
 
-    response = gemini_client.models.generate_content(
-
-        model="gemini-2.5-flash",
-
-        contents=user_prompt,
-
-        config=types.GenerateContentConfig(
-            system_instruction=system_prompt,
-            temperature=0.3,
-            max_output_tokens=2048
+    try:
+        response = gemini_client.models.generate_content(
+            model="gemini-3.8-flash",
+            contents=user_prompt,
+            config=types.GenerateContentConfig(
+                system_instruction=system_prompt,
+                temperature=0.3,
+                max_output_tokens=2048
+            )
         )
-    )
 
-    if not response.text:
-        raise ValueError("Empty response received from Gemini.")
+        if not response.text:
+            raise ValueError("Empty response from Gemini.")
 
-    return response.text
+        return response.text
 
+    except Exception as exc:
+        error = str(exc).lower()
 
+        if "429" in error or "quota" in error or "resource_exhausted" in error:
+            raise ValueError(
+                "Gemini request quota exceeded. "
+                "Please wait and try again or check API limits."
+            )
+
+        elif "404" in error or "not_found" in error:
+            raise ValueError(
+                "Gemini model unavailable. Check the model name "
+                "and API access in Google AI Studio."
+            )
+
+        elif "401" in error or "403" in error or "permission_denied" in error:
+            raise ValueError(
+                "API authentication failed. Check your Gemini API key."
+            )
+
+        else:
+            raise ValueError(f"Gemini error: {exc}")
 # =====================================================
 # 9. NAVIGATION MENU
 # =====================================================
