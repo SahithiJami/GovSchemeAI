@@ -1,40 +1,49 @@
-Scheme,MinAge,MaxAge,IncomeLimit,Category,Benefit,StateScope,OfficialURL,EligibilityNote
-PM Scholarship,18,25,500000,Student,Scholarship up to ₹50000,Central,https://scholarships.gov.in/,Illustrative entry. Check available scholarship schemes and current eligibility on the National Scholarship Portal.
-National Fellowship,18,35,600000,Student,Higher Education Support,Central,https://scholarships.gov.in/,Illustrative entry. Check relevant fellowship programmes and eligibility on the official portal.
-Education Grant Scheme,18,30,300000,Student,Educational Assistance,Central,https://scholarships.gov.in/,Illustrative entry. Check available education assistance schemes and current conditions.
-Skill Development Program,18,35,400000,Youth,Free Skill Training,Central,https://www.skillindiadigital.gov.in/,Illustrative entry. Check available courses and enrolment conditions.
-Employment Support Scheme,18,40,400000,Youth,Job Assistance,Central,https://www.ncs.gov.in/,Illustrative entry. Check available employment and career services.
-Startup Support Scheme,21,45,800000,Entrepreneur,Startup Funding,Central,https://www.startupindia.gov.in/,Illustrative entry. Check startup recognition and available support programmes.
-MSME Promotion Scheme,21,60,1000000,Entrepreneur,Business Development Support,Central,https://msme.gov.in/,Illustrative entry. Check applicable MSME support programmes.
-Farmer Support Scheme,18,60,1000000,Farmer,Agricultural Subsidy,Central / State,https://www.myscheme.gov.in/,Illustrative entry. Check agriculture schemes and applicable state conditions.
-PM Kisan Assistance,18,65,1000000,Farmer,Direct Financial Support,Central,https://pmkisan.gov.in/,Illustrative entry. Check PM-KISAN eligibility and exclusion rules.
-Irrigation Support Program,18,65,1200000,Farmer,Irrigation Benefits,Central / State,https://pmksy.gov.in/,Illustrative entry. Check applicable irrigation programmes and state implementation.
-Women Empowerment Scheme,18,55,600000,Women,Financial Assistance,Central / State,https://wcd.gov.in/,Illustrative entry. Check available women welfare schemes and eligibility.
-Women Entrepreneurship Scheme,21,55,800000,Women,Business Assistance,Central,https://www.standupmitra.in/,Illustrative entry. Check applicable entrepreneurship loan programmes and conditions.
-Senior Citizen Pension,60,100,500000,Senior,Pension Benefits,Central / State,https://nsap.nic.in/,Illustrative entry. Check pension components and state-specific eligibility.
-Healthcare Support Scheme,18,100,500000,General,Medical Coverage,Central / State,https://pmjay.gov.in/,Illustrative entry. Check healthcare coverage and beneficiary eligibility.
-Housing Assistance Scheme,21,60,600000,General,Affordable Housing,Central / State,https://www.myscheme.gov.in/,Illustrative entry. Check applicable rural and urban housing programmes.
-Health Insurance Scheme,18,100,700000,General,Health Insurance Coverage,Central / State,https://pmjay.gov.in/,Illustrative entry. Check beneficiary database and state implementation.
-Digital Literacy Program,18,50,500000,General,Computer Training,Central,https://www.myscheme.gov.in/,Illustrative entry. Check currently available digital literacy programmes.
-Disability Assistance Scheme,18,100,800000,Special,Financial Support,Central / State,https://depwd.gov.in/,Illustrative entry. Check disability welfare programmes and applicable eligibility.
-Rural Development Scheme,18,65,700000,Rural,Infrastructure Benefits,Central / State,https://rural.gov.in/,Illustrative entry. Check rural development programmes and current guidelines.
-Employment Guarantee Scheme,18,60,500000,Rural,Wage Employment,Central / State,https://nrega.nic.in/,Illustrative entry. Check MGNREGA rules and local implementation.
-PM-KISAN,18,100,-1,Farmer,Income support to eligible landholding farmer families,Central,https://pmkisan.gov.in/,Eligibility depends on land records and exclusion rules; verify on the official portal.
-Pradhan Mantri Fasal Bima Yojana (PMFBY),18,100,-1,Farmer,Crop insurance for notified crops and areas,Central / State implementation,https://pmfby.gov.in/,Available crops seasons deadlines and farmer contribution vary by notification and state.
-Ayushman Bharat – PM-JAY,0,100,-1,Healthcare,Health cover for eligible families at empanelled hospitals,Central / State implementation,https://pmjay.gov.in/,Eligibility is based on notified beneficiary databases and state rules; age and income alone do not establish eligibility.
-Pradhan Mantri Awas Yojana – Gramin (PMAY-G),18,100,-1,Housing,Rural housing assistance for eligible households,Central / State implementation,https://pmayg.nic.in/,Selection follows deprivation and priority criteria and official beneficiary lists.
-Pradhan Mantri Awas Yojana – Urban (PMAY-U),18,100,-1,Housing,Support for eligible urban housing beneficiaries,Central / State implementation,https://pmay-urban.gov.in/,Components income groups and application windows depend on current guidelines and location.
-Pradhan Mantri MUDRA Yojana (PMMY),18,100,-1,Entrepreneur,Loans for eligible micro and small business activities,Central,https://www.mudra.org.in/,Loan approval amount and terms are decided by the lending institution; this is not a grant.
-PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi),18,100,-1,Entrepreneur,Working-capital loan support for eligible street vendors,Central / Urban Local Body,https://pmsvanidhi.mohua.gov.in/,Vendor status certificates or letters and lending rules apply; check the portal or ULB.
-Pradhan Mantri Kaushal Vikas Yojana (PMKVY),15,100,-1,Youth,Skill training and certification through approved training pathways,Central,https://www.skillindiadigital.gov.in/,Courses age criteria and enrolment availability vary by training programme.
-Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA),18,100,-1,Rural,Demand-based wage employment for rural households,Central / State implementation,https://nrega.nic.in/,Adult members of rural households may apply for a job card; work is subject to the Act and local process.
-Sukanya Samriddhi Account,0,10,-1,Women,Small-savings account for a girl child,Central,https://www.indiapost.gov.in/,Account opening age and guardian or depositor conditions apply; consult India Post or an authorised bank.
-Pradhan Mantri Matru Vandana Yojana (PMMVY),18,100,-1,Women,Maternity benefit for eligible pregnant and lactating women,Central / State implementation,https://pmmvy.wcd.gov.in/,Benefit conditions exclusions and documentation apply; verify current scheme guidelines.
-Atal Pension Yojana (APY),18,40,-1,Senior,Contributory pension scheme with pension options at eligible age,Central,https://www.npscra.nsdl.co.in/scheme-details.php,Joining age bank account and tax-payer eligibility conditions apply; contributions depend on joining age.
-National Social Assistance Programme (NSAP),0,100,-1,Senior,Social assistance pensions for eligible groups,Central / State top-ups,https://nsap.nic.in/,Age poverty-status and other criteria differ by pension component and state top-ups.
-PM Vishwakarma,18,100,-1,Entrepreneur,Support for eligible traditional artisans and craftspeople,Central,https://pmvishwakarma.gov.in/,Eligible trades family restrictions registration and verification conditions apply.
-Stand-Up India,18,100,-1,Entrepreneur,Bank loans for eligible greenfield enterprises,Central,https://www.standupmitra.in/,Applicant category ownership and control project and bank appraisal requirements apply.
-National Means-cum-Merit Scholarship Scheme (NMMSS),0,100,-1,Student,Scholarship support for selected students,Central / State selection,https://scholarships.gov.in/,Selection school or class examination and family-income criteria apply; check current notice.
-Post-Matric Scholarship for SC Students,0,100,-1,Student,Financial assistance for eligible SC students after matriculation,Central / State implementation,https://scholarships.gov.in/,Income ceiling course institution and state-specific rules apply; verify current guidelines.
-Post-Matric Scholarship for ST Students,0,100,-1,Student,Financial assistance for eligible ST students after matriculation,Central / State implementation,https://scholarships.gov.in/,Income ceiling course institution and state-specific rules apply; verify current guidelines.
-PM Formalisation of Micro Food Processing Enterprises (PMFME),18,100,-1,Entrepreneur,Credit-linked support and capacity building for eligible micro food enterprises,Central / State implementation,https://pmfme.mofpi.gov.in/,Application windows eligible activities and subsidy conditions are governed by current guidelines.
+scheme_name,category,state,description,eligibility,benefits,documents,application_link
+PM Kisan Samman Nidhi,Agriculture,Central,Financial support for farmer families,Eligible landholding farmer families,6000 rupees annually,Aadhaar Bank Account Land Records,https://pmkisan.gov.in/
+Annadata Sukhibhava,Agriculture,Andhra Pradesh,Financial assistance to eligible farmers,Eligible AP farmer families,Annual farmer financial assistance,Aadhaar Bank Passbook Land Records,https://ap.gov.in/
+Pradhan Mantri Fasal Bima Yojana,Agriculture,Central,Crop insurance against natural calamities,Eligible farmers growing notified crops,Crop insurance coverage,Aadhaar Bank Details Land Records,https://pmfby.gov.in/
+Kisan Credit Card,Agriculture,Central,Provides agricultural credit to farmers,Eligible farmers,Short term agricultural loans,Aadhaar Land Records Bank Details,https://fasalrin.gov.in/
+PM Awas Yojana Gramin,Housing,Central,Housing assistance for rural families,Eligible houseless rural families,Financial assistance for house construction,Aadhaar Income Proof Bank Details,https://pmayg.nic.in/
+PM Awas Yojana Urban,Housing,Central,Affordable housing for urban households,Eligible urban households,Housing assistance,Aadhaar Income Proof Bank Details,https://pmay-urban.gov.in/
+Ayushman Bharat PMJAY,Healthcare,Central,Health insurance for eligible families,Eligible beneficiaries under scheme criteria,Health cover up to 5 lakh per family per year,Aadhaar Ration Card Eligibility Proof,https://pmjay.gov.in/
+NTR Bharosa Pension,Social Welfare,Andhra Pradesh,Monthly pension for eligible vulnerable citizens,Eligible senior citizens widows disabled persons and other notified groups,Monthly financial pension,Aadhaar Age Proof Disability Certificate if applicable,https://sspensions.ap.gov.in/SSP
+PM Ujjwala Yojana,Women Welfare,Central,LPG connections for eligible women,Eligible adult women from qualifying households,Deposit-free LPG connection under scheme rules,Aadhaar Ration Card Bank Details,https://pmuy.gov.in/
+Deepam 2.0,Women Welfare,Andhra Pradesh,Free LPG cylinders for eligible households,Eligible AP households under scheme conditions,Three free LPG cylinders per year under scheme rules,Ration Card Aadhaar LPG Connection Details,https://ap.gov.in/
+Talliki Vandanam,Education,Andhra Pradesh,Financial support for eligible school-going children,Eligible mothers or guardians of school-going children,Annual educational financial assistance,Aadhaar Student Details Bank Account,https://ap.gov.in/
+National Scholarship Portal,Education,Central,Scholarships for eligible students,Students meeting individual scholarship criteria,Financial assistance for education,Aadhaar Income Certificate Caste Certificate Marks Memo,https://scholarships.gov.in/
+Post Matric Scholarship,Education,Central,Financial support for eligible students after matriculation,Eligible students under respective scholarship rules,Tuition and maintenance assistance as applicable,Aadhaar Income Certificate Caste Certificate,https://scholarships.gov.in/
+PM POSHAN,Education,Central,Nutrition support for school children,Children in eligible government and government-aided schools,School meals,School Enrollment Details,https://pmposhan.education.gov.in/
+Skill India Mission,Employment,Central,Provides skill development and training opportunities,Youth and eligible job seekers,Skill training and certification,Identity Proof Educational Details,https://skillindia.gov.in/
+National Career Service,Employment,Central,Employment and career guidance platform,Job seekers and employers,Job search career counselling and job matching,Identity Proof Educational Details,https://www.ncs.gov.in/
+MGNREGA,Employment,Central,Rural wage employment programme,Rural households whose adult members volunteer for unskilled manual work,Guaranteed wage employment subject to scheme provisions,Job Card Aadhaar Bank Details,https://nrega.dord.gov.in/
+PM Mudra Yojana,Business,Central,Loans for eligible small business activities,Eligible non-corporate small business entrepreneurs,Loans under applicable Mudra categories,Identity Proof Business Details Bank Details,https://www.mudra.org.in/
+PM SVANidhi,Business,Central,Working capital support for street vendors,Eligible street vendors,Collateral-free working capital loans under scheme terms,Identity Proof Vendor Certificate or Letter of Recommendation,https://pmsvanidhi.mohua.gov.in/
+Stand Up India,Business,Central,Promotes entrepreneurship among women and SC ST communities,Eligible women and SC ST entrepreneurs,Bank loans for greenfield enterprises,Identity Proof Caste Certificate Business Plan,https://www.standupmitra.in/
+PM Jeevan Jyoti Bima Yojana,Insurance,Central,Affordable life insurance scheme,Eligible bank or post office account holders aged 18 to 50,Life insurance cover of 2 lakh rupees,Identity Proof Bank Account,https://jansuraksha.gov.in/
+PM Suraksha Bima Yojana,Insurance,Central,Accidental insurance scheme,Eligible bank account holders aged 18 to 70,Accidental insurance cover,Identity Proof Bank Account,https://jansuraksha.gov.in/
+Atal Pension Yojana,Pension,Central,Pension scheme for eligible subscribers,Eligible individuals aged 18 to 40 subject to rules,Monthly pension after age 60 as per contribution,Identity Proof Bank Account,https://www.npscra.nsdl.co.in/
+Sukanya Samriddhi Yojana,Savings,Central,Savings scheme for girl children,Eligible girl child below 10 years,Long-term savings with government-notified interest,Birth Certificate Parent Identity Proof,https://www.indiapost.gov.in/
+Jal Jeevan Mission,Rural Development,Central,Provides functional household tap water connections,Rural households,Access to drinking water through tap connections,Household Details,https://jaljeevanmission.gov.in/
+Swachh Bharat Mission,Rural Development,Central,Promotes sanitation and cleanliness,Eligible households and local bodies,Sanitation infrastructure and support,Household Details,https://swachhbharatmission.ddws.gov.in/
+```
+
+### Important for your project
+
+- This is a starter dataset of 26 schemes, not the complete government scheme database.
+- India has thousands of Central and State schemes. The official <Link ref="turn631768search6" title="myScheme portal"/> lists thousands of schemes and supports eligibility-based discovery.
+- Some application links lead to scheme information or official portals rather than a direct application form.
+- Your AI should recommend schemes based on the user's age, income, occupation, state and category. It should not treat every listed scheme as automatically available.
+
+**One important coding point:** In your Python code, use:
+
+```python
+scheme_df = pd.read_csv("schemes.csv")
+```
+
+And when displaying the application link in Streamlit:
+
+```python
+st.link_button("Apply / Official Website", scheme["application_link"])
+```
+
+I can also help expand this into a **100+ scheme dataset covering all major Indian Central Government and Andhra Pradesh schemes** for your project.
