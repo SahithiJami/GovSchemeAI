@@ -1,36 +1,41 @@
 Scheme,MinAge,MaxAge,IncomeLimit,Category,Benefit,StateScope,OfficialURL,EligibilityNote
-PM-KISAN,18,100,-1,Farmer,Income support for eligible farmer families,Central,https://pmkisan.gov.in/,Land records and exclusion rules apply
-PM Fasal Bima Yojana,18,100,-1,Farmer,Crop insurance for notified crops,Central and State,https://pmfby.gov.in/,Crops and enrollment periods vary by state
-Ayushman Bharat PM-JAY,0,100,-1,Healthcare,Health coverage at empanelled hospitals,Central and State,https://pmjay.gov.in/,Eligibility depends on beneficiary database
-PM Awas Yojana Gramin,18,100,-1,Housing,Rural housing assistance,Central,https://pmayg.nic.in/,Selection depends on official beneficiary criteria
-PM Awas Yojana Urban,18,100,-1,Housing,Affordable housing assistance,Central,https://pmay-urban.gov.in/,Current guidelines and income groups apply
-PM Mudra Yojana,18,100,-1,Entrepreneur,Loans for micro and small businesses,Central,https://www.mudra.org.in/,Loan approval depends on lending institutions
-PM SVANidhi,18,100,-1,Entrepreneur,Working capital loan for eligible street vendors,Central,https://pmsvanidhi.mohua.gov.in/,Vendor verification requirements apply
-PM Kaushal Vikas Yojana,15,100,-1,Youth,Skill training and certification,Central,https://www.skillindiadigital.gov.in/,Course eligibility and availability vary
-MGNREGA,18,100,-1,Rural,Wage employment for rural households,Central and State,https://nrega.nic.in/,Rural household and job card conditions apply
-Sukanya Samriddhi Account,0,10,-1,Women,Savings account for girl children,Central,https://www.indiapost.gov.in/,Age and guardian conditions apply
-PM Matru Vandana Yojana,18,100,-1,Women,Maternity financial assistance,Central,https://pmmvy.wcd.gov.in/,Eligibility and documentation conditions apply
-Atal Pension Yojana,18,40,-1,Senior,Contributory pension benefits,Central,https://www.npscra.nsdl.co.in/,Joining and contribution conditions apply
-National Social Assistance Programme,0,100,-1,Senior,Social assistance pension,Central and State,https://nsap.nic.in/,Age and other eligibility conditions apply
-PM Vishwakarma,18,100,-1,Entrepreneur,Support for traditional artisans,Central,https://pmvishwakarma.gov.in/,Eligible trades and registration conditions apply
-Stand Up India,18,100,-1,Entrepreneur,Bank loans for eligible enterprises,Central,https://www.standupmitra.in/,Ownership and bank appraisal conditions apply
-National Scholarship Portal,0,100,-1,Student,Scholarship opportunities for eligible students,Central and State,https://scholarships.gov.in/,Individual scholarship conditions apply
-National Means cum Merit Scholarship,0,100,-1,Student,Financial support for selected students,Central and State,https://scholarships.gov.in/,Examination and income conditions apply
-Post Matric Scholarship SC,0,100,-1,Student,Financial assistance for SC students,Central and State,https://scholarships.gov.in/,Income and course conditions apply
-Post Matric Scholarship ST,0,100,-1,Student,Financial assistance for ST students,Central and State,https://scholarships.gov.in/,Income and course conditions apply
-PM Formalisation of Micro Food Processing Enterprises,18,100,-1,Entrepreneur,Credit linked business support,Central and State,https://pmfme.mofpi.gov.in/,Current application and subsidy rules apply
-PM Ujjwala Yojana,18,100,-1,Women,Deposit-free LPG connection for eligible women from poor households,Central,https://pmuy.gov.in/,Adult woman from an eligible household; verify current eligibility and documents.
-PM Surya Ghar Muft Bijli Yojana,18,100,-1,General,Subsidy support for eligible residential rooftop solar installations,Central,https://pmsuryaghar.gov.in/,Residential electricity connection and other scheme conditions apply.
-AICTE Pragati Scholarship for Girls,0,100,-1,Student,Financial assistance for eligible girl students pursuing technical education,Central,https://scholarships.gov.in/,Admission and family income conditions apply; check current AICTE guidelines.
-AICTE Saksham Scholarship,0,100,-1,Special,Financial assistance for eligible students with disabilities pursuing technical education,Central,https://scholarships.gov.in/,Disability and admission conditions apply; verify current guidelines.
-AICTE Swanath Scholarship,0,100,-1,Student,Scholarship assistance for eligible students under specified vulnerable categories,Central,https://scholarships.gov.in/,Eligible student categories and admission conditions apply.
-PM USP Central Sector Scholarship,0,100,-1,Student,Merit-based financial assistance for eligible college and university students,Central,https://scholarships.gov.in/,Academic merit and family income conditions apply.
-Ishan Uday Scholarship,0,100,-1,Student,Scholarship support for eligible students from North Eastern Region,Central,https://scholarships.gov.in/,Region, admission and income conditions apply.
-PM YASASVI Scholarship,0,100,-1,Student,Educational assistance for eligible OBC EBC and DNT students,Central,https://scholarships.gov.in/,Category, class, selection and income conditions apply.
-National Fellowship for Scheduled Caste Students,0,100,-1,Student,Fellowship support for eligible SC students pursuing research,Central,https://nsfdc.nic.in/nfsc,Research admission and applicable fellowship rules apply.
-National Overseas Scholarship,0,100,-1,Student,Financial assistance for eligible students pursuing higher studies abroad,Central,https://nosmsje.gov.in/,Category, academic, income and selection conditions apply.
-PM Jan Dhan Yojana,18,100,-1,General,Access to basic banking services and eligible financial inclusion benefits,Central,https://pmjdy.gov.in/,Account opening and benefit conditions apply.
-Pradhan Mantri Jeevan Jyoti Bima Yojana,18,50,-1,General,Life insurance cover through a participating bank account,Central,https://jansuraksha.gov.in/,Joining age, bank account and premium payment conditions apply.
-Pradhan Mantri Suraksha Bima Yojana,18,70,-1,General,Accident insurance cover for eligible subscribers,Central,https://jansuraksha.gov.in/,Bank account, joining age and premium conditions apply.
-National Rural Livelihoods Mission,18,100,-1,Rural,Support for rural livelihoods and eligible self-help groups,Central / State implementation,https://aajeevika.gov.in/,Participation and assistance depend on programme and local implementation.
-Deendayal Antyodaya Yojana NULM,18,100,-1,Urban,Urban livelihood and skill development support for eligible beneficiaries,Central / Urban Local Body,https://nulm.gov.in/,Eligibility and available services depend on local implementation.
+PM-KISAN,18,100,-1,Farmer,Financial assistance to eligible farmer families,Central,https://pmkisan.gov.in/,Eligibility depends on land records and exclusion rules
+Pradhan Mantri Fasal Bima Yojana,18,100,-1,Farmer,Crop insurance for notified crops,Central / State,https://pmfby.gov.in/,Eligible crops and application deadlines depend on state notifications
+PM Krishi Sinchai Yojana,18,100,-1,Farmer,Irrigation support and water conservation,Central / State,https://pmksy.gov.in/,Benefits depend on component and state guidelines
+Kisan Credit Card,18,75,-1,Farmer,Credit support for agricultural activities,Central,https://www.myscheme.gov.in/,Loan approval depends on bank rules and eligibility
+Ayushman Bharat PM-JAY,0,100,-1,Healthcare,Health coverage for eligible families,Central / State,https://pmjay.gov.in/,Eligibility depends on official beneficiary database and state rules
+PM Jan Arogya Yojana,0,100,-1,Healthcare,Cashless hospital treatment for eligible beneficiaries,Central / State,https://pmjay.gov.in/,Check beneficiary eligibility through the official portal
+PM Awas Yojana Gramin,18,100,-1,Housing,Rural housing assistance,Central / State,https://pmayg.nic.in/,Selection follows official household eligibility and priority criteria
+PM Awas Yojana Urban,18,100,-1,Housing,Affordable housing assistance for eligible urban households,Central / State,https://pmay-urban.gov.in/,Income group and component-specific conditions apply
+PM Mudra Yojana,18,100,-1,Entrepreneur,Loans for micro and small business activities,Central,https://www.mudra.org.in/,Loan approval and terms depend on lending institutions
+PM SVANidhi,18,100,-1,Entrepreneur,Working capital loan support for street vendors,Central / ULB,https://pmsvanidhi.mohua.gov.in/,Street vendor identification and lending conditions apply
+PM Vishwakarma,18,100,-1,Entrepreneur,Training toolkit and credit support for traditional artisans,Central,https://pmvishwakarma.gov.in/,Eligible trades and registration conditions apply
+Stand-Up India,18,100,-1,Entrepreneur,Bank loans for eligible greenfield enterprises,Central,https://www.standupmitra.in/,Ownership and applicant category conditions apply
+PMFME Scheme,18,100,-1,Entrepreneur,Credit-linked support for micro food processing enterprises,Central / State,https://pmfme.mofpi.gov.in/,Eligible activities and subsidy conditions apply
+PM Employment Generation Programme,18,100,-1,Entrepreneur,Financial assistance for eligible new enterprises,Central,https://www.kviconline.gov.in/pmegpeportal/,Project and applicant eligibility conditions apply
+PM Kaushal Vikas Yojana,15,100,-1,Youth,Skill training and certification,Central,https://www.skillindiadigital.gov.in/,Courses and age conditions vary by training programme
+National Apprenticeship Promotion Scheme,14,100,-1,Youth,Apprenticeship training support,Central,https://www.apprenticeshipindia.gov.in/,Trade and apprenticeship eligibility conditions apply
+MGNREGA,18,100,-1,Rural,Demand-based wage employment for rural households,Central / State,https://nrega.nic.in/,Adult members of rural households can apply for job cards
+National Social Assistance Programme,0,100,-1,Senior,Social assistance pensions for eligible groups,Central / State,https://nsap.nic.in/,Age and poverty criteria vary by pension component
+Atal Pension Yojana,18,40,-1,Senior,Contributory pension benefits,Central,https://www.npscra.nsdl.co.in/scheme-details.php,Joining age and other account conditions apply
+Pradhan Mantri Vaya Vandana Yojana,60,100,-1,Senior,Pension-oriented savings scheme,Central,https://www.licindia.in/,Check current availability and official LIC conditions
+Sukanya Samriddhi Yojana,0,10,-1,Women,Savings scheme for girl children,Central,https://www.indiapost.gov.in/,Account opening age and guardian conditions apply
+Pradhan Mantri Matru Vandana Yojana,18,100,-1,Women,Maternity benefit for eligible women,Central / State,https://pmmvy.wcd.gov.in/,Eligibility and documentation conditions apply
+Beti Bachao Beti Padhao,0,18,-1,Women,Awareness and support for girl child education and welfare,Central / State,https://wcd.gov.in/,This is primarily an awareness and coordination programme, not an individual cash benefit
+Mahila Shakti Kendra,18,100,-1,Women,Support for women's empowerment and awareness,Central / State,https://wcd.gov.in/,Availability and services depend on current implementation
+Post Matric Scholarship for SC Students,0,100,-1,Student,Financial assistance for eligible SC students,Central / State,https://scholarships.gov.in/,Income limits course and state rules apply
+Post Matric Scholarship for ST Students,0,100,-1,Student,Financial assistance for eligible ST students,Central / State,https://scholarships.gov.in/,Income limits course and state rules apply
+National Means Cum Merit Scholarship,0,100,-1,Student,Scholarship for selected school students,Central / State,https://scholarships.gov.in/,Selection examination and family income conditions apply
+National Scholarship Portal Schemes,0,100,-1,Student,Scholarships for eligible students,Central / State,https://scholarships.gov.in/,Individual scheme eligibility conditions apply
+PM Scholarship Scheme,18,25,-1,Student,Higher education scholarship for eligible wards of specified personnel,Central,https://scholarships.gov.in/,Specific applicant groups and academic conditions apply
+National Fellowship for Higher Education,18,100,-1,Student,Fellowship support for eligible higher education students,Central,https://fellowship.tribal.gov.in/,Applicable fellowship category and current guidelines determine eligibility
+Digital India Programme,0,100,-1,General,Digital literacy and digital services awareness,Central,https://www.digitalindia.gov.in/,Specific training and service eligibility may vary
+PM Gramin Digital Saksharta Abhiyan,14,100,-1,Rural,Digital literacy training for eligible rural households,Central,https://www.pmgdisha.in/,Training availability and beneficiary conditions apply
+PM Ujjwala Yojana,18,100,-1,Women,LPG connection support for eligible women,Central,https://www.pmuy.gov.in/,Household and beneficiary eligibility conditions apply
+PM Jan Dhan Yojana,10,100,-1,General,Financial inclusion and basic bank account access,Central,https://pmjdy.gov.in/,Account opening and banking conditions apply
+PM Jeevan Jyoti Bima Yojana,18,50,-1,General,Life insurance coverage,Central,https://jansuraksha.gov.in/,Joining age premium and renewal conditions apply
+PM Suraksha Bima Yojana,18,70,-1,General,Accidental insurance coverage,Central,https://jansuraksha.gov.in/,Age bank account and premium conditions apply
+Atal Innovation Mission,0,100,-1,Youth,Innovation and entrepreneurship development support,Central,https://aim.gov.in/,Program-specific participation conditions apply
+National Rural Livelihoods Mission,18,100,-1,Rural,Support for rural livelihoods and self-help groups,Central / State,https://aajeevika.gov.in/,Participation depends on programme and local implementation
+PM Matsya Sampada Yojana,18,100,-1,Fisheries,Support for fisheries and aquaculture development,Central / State,https://pmmsy.dof.gov.in/,Eligible activities and beneficiary conditions apply
+PM Formalisation of Micro Food Processing Enterprises,18,100,-1,Entrepreneur,Financial and technical support for eligible food processing units,Central / State,https://pmfme.mofpi.gov.in/,Current application and activity guidelines apply
