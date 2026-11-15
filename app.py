@@ -237,55 +237,17 @@ except (FileNotFoundError, pd.errors.EmptyDataError):
 
 
 # =====================================================
-# 7. GEMINI CONFIGURATION
+# GEMINI AI CONFIGURATION
+# =====================================================
 
+import os
+import time
+import streamlit as st
 
-def ask_gemini(system_prompt, user_prompt):
+from google import genai
+from google.genai import types
 
-    if gemini_client is None:
-        raise ValueError(
-            "Gemini API key is not configured."
-        )
-
-    try:
-        response = gemini_client.models.generate_content(
-            model="gemini-3.8-flash",
-            contents=user_prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=system_prompt,
-                temperature=0.3,
-                max_output_tokens=2048
-            )
-        )
-
-        if not response.text:
-            raise ValueError("Empty response from Gemini.")
-
-        return response.text
-
-    except Exception as exc:
-        error = str(exc).lower()
-
-        if "429" in error or "quota" in error or "resource_exhausted" in error:
-            raise ValueError(
-                "Gemini request quota exceeded. "
-                "Please wait and try again or check API limits."
-            )
-
-        elif "404" in error or "not_found" in error:
-            raise ValueError(
-                "Gemini model unavailable. Check the model name "
-                "and API access in Google AI Studio."
-            )
-
-        elif "401" in error or "403" in error or "permission_denied" in error:
-            raise ValueError(
-                "API authentication failed. Check your Gemini API key."
-            )
-
-        else:
-            raise ValueError(f"Gemini error: {exc}")
-        # GEMINI CLIENT CONFIGURATION
+GEMINI_MODEL = "gemini-3.8-flash"
 
 gemini_client = None
 
@@ -300,6 +262,61 @@ try:
 
 except Exception as e:
     st.warning(f"Gemini configuration error: {e}")
+
+
+# =====================================================
+# GEMINI AI FUNCTION
+# =====================================================
+
+def ask_gemini(system_prompt, user_prompt):
+
+    if gemini_client is None:
+        raise ValueError(
+            "Gemini API key is missing. "
+            "Please configure GEMINI_API_KEY."
+        )
+
+    try:
+        response = gemini_client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=user_prompt,
+            config=types.GenerateContentConfig(
+                system_instruction=system_prompt,
+                temperature=0.3,
+                max_output_tokens=1024
+            )
+        )
+
+        if not response.text:
+            raise ValueError("Gemini returned an empty response.")
+
+        return response.text
+
+    except Exception as e:
+
+        error = str(e).lower()
+
+        if "429" in error or "resource_exhausted" in error or "quota" in error:
+            raise ValueError(
+                "Gemini free-tier quota exceeded. "
+                "Check your model limits in Google AI Studio. "
+                "Wait for the quota reset or use another model "
+                "that is available to your project."
+            )
+
+        elif "404" in error or "not_found" in error:
+            raise ValueError(
+                f"Model {GEMINI_MODEL} is unavailable. "
+                "Check the available models for your API key."
+            )
+
+        elif "api key" in error or "permission_denied" in error:
+            raise ValueError(
+                "Invalid Gemini API key or insufficient permissions."
+            )
+
+        else:
+            raise ValueError(f"Gemini API error: {e}")
 # =====================================================
 # 9. NAVIGATION MENU
 # =====================================================
