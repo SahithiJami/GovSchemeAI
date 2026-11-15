@@ -7,6 +7,7 @@ from google import genai
 from google.genai import types
 from streamlit_option_menu import option_menu
 
+
 # =====================================================
 # 1. PAGE CONFIGURATION
 # =====================================================
@@ -16,6 +17,7 @@ st.set_page_config(
     page_icon="🏛️",
     layout="wide"
 )
+
 
 # =====================================================
 # 2. SUPPORTED LANGUAGES
@@ -36,13 +38,13 @@ LANGUAGES = {
     "অসমীয়া": "Assamese"
 }
 
+
 # =====================================================
 # 3. INTERFACE TRANSLATIONS
 # =====================================================
 
 UI = {
     "English": {
-        "language": "Language",
         "dashboard": "Dashboard",
         "eligibility": "Eligibility Checker",
         "survey": "Community Survey",
@@ -59,8 +61,8 @@ UI = {
         "check": "Check Matching Schemes",
         "ask": "Ask anything about government schemes",
         "send": "Ask AI",
-        "no_match": "No likely matches found using these basic filters. Try broadening your search.",
-        "disclaimer": "This tool provides preliminary information only. A match is not an official eligibility decision. Always verify current rules and apply through the official scheme portal.",
+        "no_match": "No possible matches found. Try changing your filters.",
+        "disclaimer": "This tool provides preliminary information only. Always verify eligibility on the official portal.",
         "search": "Search schemes",
         "all": "All",
         "details": "Scheme details and official links",
@@ -70,16 +72,13 @@ UI = {
         "gender": "Gender",
         "submit": "Submit Survey",
         "success": "Survey submitted successfully!",
-        "no_key": "Gemini AI is unavailable. Please configure GEMINI_API_KEY in Streamlit secrets.",
-        "ai_success": "AI response generated successfully!",
+        "no_key": "Gemini API key is not configured.",
         "response": "AI Response",
         "coverage": "Coverage",
-        "ask_error": "Please enter a question.",
-        "state_note": "State and occupation are collected but are not used as eligibility filters unless the scheme dataset contains those rules."
+        "ask_error": "Please enter a question."
     },
 
     "తెలుగు": {
-        "language": "భాష",
         "dashboard": "డ్యాష్‌బోర్డ్",
         "eligibility": "అర్హత తనిఖీ",
         "survey": "సమాజ సర్వే",
@@ -96,8 +95,8 @@ UI = {
         "check": "సరిపోయే పథకాలను చూడండి",
         "ask": "ప్రభుత్వ పథకాల గురించి ఏదైనా అడగండి",
         "send": "AI ని అడగండి",
-        "no_match": "ఈ ప్రాథమిక వివరాలతో సరిపోయే పథకాలు కనబడలేదు.",
-        "disclaimer": "ఇది ప్రాథమిక సమాచారం మాత్రమే. ఇక్కడ చూపిన సరిపోలిక అధికారిక అర్హత నిర్ణయం కాదు. తాజా నిబంధనలను అధికారిక పోర్టల్‌లో నిర్ధారించండి.",
+        "no_match": "సరిపోయే పథకాలు కనబడలేదు.",
+        "disclaimer": "ఇది ప్రాథమిక సమాచారం మాత్రమే. అధికారిక వెబ్‌సైట్‌లో అర్హతను నిర్ధారించండి.",
         "search": "పథకాలను వెతకండి",
         "all": "అన్నీ",
         "details": "పథక వివరాలు మరియు అధికారిక లింకులు",
@@ -107,16 +106,13 @@ UI = {
         "gender": "లింగం",
         "submit": "సర్వే సమర్పించండి",
         "success": "సర్వే విజయవంతంగా సమర్పించబడింది!",
-        "no_key": "Gemini API Key అందుబాటులో లేదు. Streamlit secrets లో GEMINI_API_KEY నమోదు చేయండి.",
-        "ai_success": "AI సమాధానం విజయవంతంగా రూపొందించబడింది!",
+        "no_key": "Gemini API Key నమోదు చేయండి.",
         "response": "AI సమాధానం",
         "coverage": "వర్తించే ప్రాంతం",
-        "ask_error": "దయచేసి ఒక ప్రశ్న నమోదు చేయండి.",
-        "state_note": "రాష్ట్రం మరియు వృత్తి వివరాలు సేకరించబడతాయి. డేటాసెట్‌లో సంబంధిత నియమాలు ఉంటేనే అవి అర్హత తనిఖీలో ఉపయోగించబడతాయి."
+        "ask_error": "దయచేసి ప్రశ్న నమోదు చేయండి."
     },
 
     "हिन्दी": {
-        "language": "भाषा",
         "dashboard": "डैशबोर्ड",
         "eligibility": "पात्रता जाँच",
         "survey": "समुदाय सर्वेक्षण",
@@ -128,33 +124,32 @@ UI = {
         "age": "आयु",
         "income": "वार्षिक आय (₹)",
         "category": "श्रेणी",
-        "state": "राज्य / केंद्र शासित प्रदेश",
+        "state": "राज्य",
         "occupation": "व्यवसाय",
-        "check": "मेल खाने वाली योजनाएँ देखें",
-        "ask": "सरकारी योजनाओं के बारे में कुछ भी पूछें",
+        "check": "योजनाएँ देखें",
+        "ask": "सरकारी योजनाओं के बारे में पूछें",
         "send": "AI से पूछें",
-        "no_match": "इन प्रारंभिक फ़िल्टरों से कोई संभावित योजना नहीं मिली।",
-        "disclaimer": "यह केवल प्रारंभिक जानकारी है। संभावित मिलान आधिकारिक पात्रता निर्णय नहीं है। वर्तमान नियम आधिकारिक पोर्टल पर जाँचें।",
+        "no_match": "कोई संभावित योजना नहीं मिली।",
+        "disclaimer": "यह केवल प्रारंभिक जानकारी है। आधिकारिक पोर्टल पर जाँचें।",
         "search": "योजनाएँ खोजें",
         "all": "सभी",
         "details": "योजना विवरण और आधिकारिक लिंक",
         "benefit": "लाभ",
         "official": "आधिकारिक पोर्टल",
-        "survey_age": "सर्वेक्षण आयु",
+        "survey_age": "आयु",
         "gender": "लिंग",
-        "submit": "सर्वेक्षण जमा करें",
-        "success": "सर्वेक्षण सफलतापूर्वक जमा हुआ!",
-        "no_key": "Gemini API Key उपलब्ध नहीं है। Streamlit secrets में GEMINI_API_KEY सेट करें।",
-        "ai_success": "AI उत्तर सफलतापूर्वक तैयार हुआ!",
+        "submit": "जमा करें",
+        "success": "सफलतापूर्वक जमा हुआ!",
+        "no_key": "Gemini API Key सेट करें।",
         "response": "AI उत्तर",
         "coverage": "क्षेत्र",
-        "ask_error": "कृपया अपना प्रश्न दर्ज करें।",
-        "state_note": "राज्य और व्यवसाय की जानकारी एकत्र की जाती है। इनका उपयोग पात्रता जाँच में तभी होगा जब डेटासेट में संबंधित नियम उपलब्ध हों।"
+        "ask_error": "कृपया प्रश्न दर्ज करें।"
     }
 }
 
-for language_name in LANGUAGES:
-    UI.setdefault(language_name, UI["English"])
+for lang in LANGUAGES:
+    UI.setdefault(lang, UI["English"])
+
 
 # =====================================================
 # 4. LANGUAGE SELECTION
@@ -162,74 +157,87 @@ for language_name in LANGUAGES:
 
 language = st.selectbox(
     "🌐 Language / భాష / भाषा",
-    list(LANGUAGES.keys()),
-    key="language"
+    list(LANGUAGES.keys())
 )
 
 t = UI[language]
 
 st.title("🏛️ GovScheme AI")
+
 st.markdown(f"### {t['tagline']}")
 
 st.caption(
     "Government Scheme Awareness | AI | Data Analytics | Community Development"
 )
 
+
 # =====================================================
-# 5. LOAD GOVERNMENT SCHEMES
+# 5. LOAD SCHEME DATA
 # =====================================================
 
 @st.cache_data
 def load_schemes():
 
-    data = pd.read_csv("schemes.csv")
+    df = pd.read_csv("schemes.csv")
 
-    required_columns = {
-        "Scheme", "MinAge", "MaxAge",
-        "IncomeLimit", "Category", "Benefit"
-    }
+    required = [
+        "Scheme",
+        "MinAge",
+        "MaxAge",
+        "IncomeLimit",
+        "Category",
+        "Benefit",
+        "StateScope",
+        "OfficialURL",
+        "EligibilityNote"
+    ]
 
-    missing = required_columns - set(data.columns)
+    missing = set(required) - set(df.columns)
 
     if missing:
         raise ValueError(
-            f"Missing columns in schemes.csv: {', '.join(sorted(missing))}"
+            f"Missing columns: {missing}"
         )
 
-    optional_columns = {
-        "StateScope": "Central / Verify applicable state",
-        "OfficialURL": "",
-        "EligibilityNote": "Verify all conditions on the official portal."
-    }
+    for col in ["MinAge", "MaxAge", "IncomeLimit"]:
+        df[col] = pd.to_numeric(
+            df[col],
+            errors="coerce"
+        )
 
-    for column, default in optional_columns.items():
-        if column not in data.columns:
-            data[column] = default
-
-    return data
+    return df
 
 
 try:
     scheme_df = load_schemes()
 
-except Exception as exc:
-    st.error(f"Could not load schemes.csv: {exc}")
+except Exception as e:
+    st.error(f"CSV loading error: {e}")
     st.stop()
 
+
 # =====================================================
-# 6. LOAD COMMUNITY SURVEY DATA
+# 6. LOAD SURVEY DATA
 # =====================================================
 
 try:
     survey_df = pd.read_csv("survey.csv")
 
 except (FileNotFoundError, pd.errors.EmptyDataError):
+
     survey_df = pd.DataFrame(
-        columns=["Age", "Gender", "Occupation", "Income", "State"]
+        columns=[
+            "Age",
+            "Gender",
+            "Occupation",
+            "Income",
+            "State"
+        ]
     )
 
+
 # =====================================================
-# 7. GEMINI API CONFIGURATION
+# 7. GEMINI CONFIGURATION
 # =====================================================
 
 gemini_client = None
@@ -242,10 +250,13 @@ try:
     )
 
     if api_key:
-        gemini_client = genai.Client(api_key=api_key)
+        gemini_client = genai.Client(
+            api_key=api_key
+        )
 
-except Exception as exc:
-    st.warning(f"Gemini configuration error: {exc}")
+except Exception as e:
+    st.warning(f"Gemini configuration error: {e}")
+
 
 # =====================================================
 # 8. GEMINI AI FUNCTION
@@ -254,68 +265,54 @@ except Exception as exc:
 def ask_gemini(system_prompt, user_prompt):
 
     if gemini_client is None:
-        raise ValueError("Gemini API key is not configured.")
-
-    try:
-
-        response = gemini_client.models.generate_content(
-            model="gemini-3.5-flash-lite",
-            contents=user_prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=system_prompt,
-                temperature=0.3,
-                max_output_tokens=2048
-            )
+        raise ValueError(
+            "Gemini API key is missing. Configure GEMINI_API_KEY."
         )
 
-        if not response.text:
-            raise ValueError("Gemini returned an empty response.")
+    response = gemini_client.models.generate_content(
 
-        return response.text
+        model="gemini-2.5-flash",
 
-    except Exception as exc:
+        contents=user_prompt,
 
-        error_message = str(exc).lower()
+        config=types.GenerateContentConfig(
+            system_instruction=system_prompt,
+            temperature=0.3,
+            max_output_tokens=2048
+        )
+    )
 
-        if any(x in error_message for x in ["429", "resource_exhausted", "quota"]):
-            raise ValueError(
-                "Gemini AI request limit reached. Please wait and try again. "
-                "Check your API quota and billing details."
-            )
+    if not response.text:
+        raise ValueError("Empty response received from Gemini.")
 
-        elif any(x in error_message for x in ["api key", "permission_denied", "401", "403"]):
-            raise ValueError(
-                "Gemini API authentication failed. Please check your API key."
-            )
+    return response.text
 
-        elif "404" in error_message:
-            raise ValueError(
-                "Gemini model unavailable. Check model availability in Google AI Studio."
-            )
-
-        else:
-            raise ValueError(f"Gemini service error: {exc}")
 
 # =====================================================
 # 9. NAVIGATION MENU
 # =====================================================
 
 selected = option_menu(
+
     menu_title=None,
+
     options=[
         t["dashboard"],
         t["eligibility"],
         t["survey"],
         t["assistant"]
     ],
+
     icons=[
         "bar-chart",
         "check-circle",
         "clipboard-data",
         "robot"
     ],
+
     orientation="horizontal"
 )
+
 
 # =====================================================
 # 10. DASHBOARD
@@ -327,24 +324,38 @@ if selected == t["dashboard"]:
 
     col1, col2, col3 = st.columns(3)
 
-    col1.metric(t["total"], len(scheme_df))
-    col2.metric(t["responses"], len(survey_df))
-    col3.metric(t["categories"], scheme_df["Category"].nunique())
+    col1.metric(
+        t["total"],
+        len(scheme_df)
+    )
+
+    col2.metric(
+        t["responses"],
+        len(survey_df)
+    )
+
+    col3.metric(
+        t["categories"],
+        scheme_df["Category"].nunique()
+    )
 
     st.divider()
+
+    category_counts = (
+        scheme_df["Category"]
+        .fillna("Unspecified")
+        .value_counts()
+        .reset_index()
+    )
+
+    category_counts.columns = [
+        "Category",
+        "Count"
+    ]
 
     left, right = st.columns(2)
 
     with left:
-
-        category_counts = (
-            scheme_df["Category"]
-            .fillna("Unspecified")
-            .value_counts()
-            .reset_index()
-        )
-
-        category_counts.columns = ["Category", "Count"]
 
         fig = px.pie(
             category_counts,
@@ -353,7 +364,10 @@ if selected == t["dashboard"]:
             title="Government Schemes by Category"
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
 
     with right:
 
@@ -361,43 +375,63 @@ if selected == t["dashboard"]:
             category_counts,
             x="Category",
             y="Count",
-            title="Scheme Distribution",
-            text="Count"
+            text="Count",
+            title="Scheme Distribution"
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
 
-    st.subheader(f"📋 {t['details']}")
+    st.subheader(t["details"])
 
     query = st.text_input(t["search"])
 
-    category_options = [t["all"]] + sorted(
+    categories = [
+        t["all"]
+    ] + sorted(
         scheme_df["Category"].dropna().unique().tolist()
     )
 
     chosen_category = st.selectbox(
         t["category"],
-        category_options
+        categories
     )
 
     view = scheme_df.copy()
 
     if query:
+
         view = view[
-            scheme_df["Scheme"].astype(str).str.contains(
-                query, case=False, na=False
+            view["Scheme"].str.contains(
+                query,
+                case=False,
+                na=False
             )
             |
-            scheme_df["Benefit"].astype(str).str.contains(
-                query, case=False, na=False
+            view["Benefit"].str.contains(
+                query,
+                case=False,
+                na=False
             )
         ]
 
     if chosen_category != t["all"]:
-        view = view[view["Category"] == chosen_category]
+
+        view = view[
+            view["Category"] == chosen_category
+        ]
 
     st.dataframe(
-        view[["Scheme", "Category", "Benefit", "StateScope"]],
+        view[
+            [
+                "Scheme",
+                "Category",
+                "Benefit",
+                "StateScope"
+            ]
+        ],
         use_container_width=True,
         hide_index=True
     )
@@ -406,15 +440,23 @@ if selected == t["dashboard"]:
 
         with st.expander(str(row["Scheme"])):
 
-            st.write(f"**{t['benefit']}:** {row['Benefit']}")
-            st.write(f"**{t['coverage']}:** {row['StateScope']}")
-            st.info(str(row["EligibilityNote"]))
+            st.write(
+                f"**{t['benefit']}:** {row['Benefit']}"
+            )
 
-            official_url = str(row["OfficialURL"]).strip()
+            st.write(
+                f"**{t['coverage']}:** {row['StateScope']}"
+            )
 
-            if official_url.startswith("https://"):
-                st.link_button(t["official"], official_url)
-                # =====================================================
+            st.info(row["EligibilityNote"])
+
+            url = str(row["OfficialURL"]).strip()
+
+            if url.startswith("https://"):
+                st.link_button(t["official"], url)
+
+
+# =====================================================
 # 11. ELIGIBILITY CHECKER
 # =====================================================
 
@@ -442,11 +484,16 @@ elif selected == t["eligibility"]:
 
     with col2:
 
-        category_options = [t["all"]] + sorted(
+        categories = [
+            t["all"]
+        ] + sorted(
             scheme_df["Category"].dropna().unique().tolist()
         )
 
-        category = st.selectbox(t["category"], category_options)
+        category = st.selectbox(
+            t["category"],
+            categories
+        )
 
         state = st.selectbox(
             t["state"],
@@ -466,21 +513,12 @@ elif selected == t["eligibility"]:
         occupation = st.text_input(t["occupation"])
 
     st.caption(t["disclaimer"])
-    st.caption(t["state_note"])
 
     if st.button(t["check"], type="primary"):
 
-        min_age = pd.to_numeric(
-            scheme_df["MinAge"], errors="coerce"
-        ).fillna(0)
-
-        max_age = pd.to_numeric(
-            scheme_df["MaxAge"], errors="coerce"
-        ).fillna(110)
-
-        income_limit = pd.to_numeric(
-            scheme_df["IncomeLimit"], errors="coerce"
-        )
+        min_age = scheme_df["MinAge"].fillna(0)
+        max_age = scheme_df["MaxAge"].fillna(110)
+        income_limit = scheme_df["IncomeLimit"]
 
         matches = scheme_df[
             (min_age <= age)
@@ -495,27 +533,34 @@ elif selected == t["eligibility"]:
         ].copy()
 
         if category != t["all"]:
-            matches = matches[matches["Category"] == category]
+            matches = matches[
+                matches["Category"] == category
+            ]
 
         st.session_state["last_matches"] = matches
 
         st.session_state["profile"] = {
-            "age": age,
-            "income": income,
-            "category": category,
-            "state": state,
-            "occupation": occupation
+            "Age": age,
+            "Income": income,
+            "Category": category,
+            "State": state,
+            "Occupation": occupation
         }
 
-        if len(matches) > 0:
+        if not matches.empty:
 
             st.success(
-                f"{len(matches)} possible schemes to review."
+                f"{len(matches)} possible schemes found."
             )
 
             st.dataframe(
                 matches[
-                    ["Scheme", "Category", "Benefit", "StateScope"]
+                    [
+                        "Scheme",
+                        "Category",
+                        "Benefit",
+                        "StateScope"
+                    ]
                 ],
                 use_container_width=True,
                 hide_index=True
@@ -525,13 +570,19 @@ elif selected == t["eligibility"]:
 
                 with st.expander(str(row["Scheme"])):
 
-                    st.write(f"**{t['benefit']}:** {row['Benefit']}")
-                    st.write(row["EligibilityNote"])
+                    st.write(
+                        f"**Benefit:** {row['Benefit']}"
+                    )
 
-                    official_url = str(row["OfficialURL"]).strip()
+                    st.info(row["EligibilityNote"])
 
-                    if official_url.startswith("https://"):
-                        st.link_button(t["official"], official_url)
+                    url = str(row["OfficialURL"]).strip()
+
+                    if url.startswith("https://"):
+                        st.link_button(
+                            t["official"],
+                            url
+                        )
 
         else:
             st.warning(t["no_match"])
@@ -544,49 +595,50 @@ elif selected == t["eligibility"]:
         if st.button("🤖 Get Gemini AI Explanation"):
 
             matches = st.session_state["last_matches"]
+
             profile = st.session_state["profile"]
 
             prompt = f"""
             User profile:
             {profile}
 
-            Possible government schemes from local dataset:
-
+            Possible schemes:
             {matches[
-                ["Scheme", "Benefit", "EligibilityNote"]
+                ["Scheme", "Benefit", "EligibilityNote", "OfficialURL"]
             ].to_string(index=False)}
             """
 
             try:
 
-                response_text = ask_gemini(
+                result = ask_gemini(
+
                     system_prompt=f"""
                     You are GovScheme AI.
 
                     Respond only in {LANGUAGES[language]}.
 
-                    Explain the possible matching schemes in simple language.
+                    Explain possible matching government schemes
+                    in simple language.
 
-                    Explain that these are preliminary matches.
+                    Do not invent eligibility requirements.
 
-                    Do not invent eligibility rules.
+                    Explain that these are preliminary matches,
+                    not official eligibility decisions.
 
-                    Distinguish dataset filters from official eligibility requirements.
+                    Use only the supplied information.
 
-                    Explain benefits using only supplied data.
-
-                    Direct the user to the official scheme portal.
-
-                    If information is missing, clearly say so.
+                    Mention official links when available.
                     """,
+
                     user_prompt=prompt
                 )
 
-                st.subheader(f"🤖 {t['response']}")
-                st.write(response_text)
+                st.subheader(t["response"])
+                st.write(result)
 
-            except Exception as exc:
-                st.error(f"Gemini AI request failed: {exc}")
+            except Exception as e:
+                st.error(f"Gemini error: {e}")
+
 
 # =====================================================
 # 12. COMMUNITY SURVEY
@@ -659,9 +711,7 @@ elif selected == t["survey"]:
 
         st.success(t["success"])
 
-    # Survey analytics
-
-    if len(survey_df) > 0:
+    if not survey_df.empty:
 
         st.subheader("📊 Community Survey Analytics")
 
@@ -672,11 +722,14 @@ elif selected == t["survey"]:
             fig = px.histogram(
                 survey_df,
                 x="Age",
-                title="Age Distribution",
-                nbins=10
+                nbins=10,
+                title="Age Distribution"
             )
 
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(
+                fig,
+                use_container_width=True
+            )
 
         with col2:
 
@@ -686,7 +739,10 @@ elif selected == t["survey"]:
                 title="Gender Distribution"
             )
 
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(
+                fig,
+                use_container_width=True
+            )
 
         if "State" in survey_df.columns:
 
@@ -701,11 +757,14 @@ elif selected == t["survey"]:
                 state_counts,
                 x="State",
                 y="Count",
-                title="State-wise Participation",
-                text="Count"
+                text="Count",
+                title="State-wise Participation"
             )
 
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(
+                fig,
+                use_container_width=True
+            )
 
         csv_data = survey_df.to_csv(index=False)
 
@@ -715,6 +774,7 @@ elif selected == t["survey"]:
             file_name="survey_data.csv",
             mime="text/csv"
         )
+
 
 # =====================================================
 # 13. GEMINI AI ASSISTANT
@@ -736,7 +796,7 @@ elif selected == t["assistant"]:
     question = st.text_area(
         t["ask"],
         height=120,
-        placeholder="Example: What government schemes are available for farmers?"
+        placeholder="Example: What schemes are available for farmers?"
     )
 
     if st.button(t["send"], type="primary"):
@@ -762,62 +822,54 @@ elif selected == t["assistant"]:
                 ]
             ].to_string(index=False)
 
+            system_prompt = f"""
+            You are GovScheme AI, an Indian government
+            scheme information assistant.
+
+            Respond only in {LANGUAGES[language]}.
+
+            Use simple and accessible language.
+
+            Explain scheme benefits, eligibility and
+            application procedures.
+
+            Use the supplied scheme database as reference.
+
+            Never invent:
+            - Application deadlines
+            - Benefit amounts
+            - Eligibility criteria
+            - Government approval status
+
+            Clearly mention when information needs verification.
+
+            Provide official URLs from the supplied dataset
+            whenever relevant.
+
+            Never request Aadhaar numbers, OTPs,
+            bank account numbers or passwords.
+
+            Scheme database:
+            {directory}
+            """
+
             try:
 
-                response_text = ask_gemini(
-                    system_prompt=f"""
-                    You are GovScheme AI, an Indian government
-                    scheme information assistant.
-
-                    Your main purpose is to help citizens understand
-                    government schemes.
-
-                    Respond only in {LANGUAGES[language]}.
-
-                    Use simple and accessible language.
-
-                    Explain scheme eligibility, benefits and
-                    application procedures clearly.
-
-                    Use the supplied scheme directory as a starting
-                    point, not as proof of current eligibility.
-
-                    Never invent:
-                    - Application deadlines
-                    - Benefit amounts
-                    - Eligibility criteria
-                    - Government approval status
-                    - Application status
-
-                    When relevant, provide official portal URLs
-                    included in the supplied directory.
-
-                    Clearly mention when information needs verification.
-
-                    Do not ask users for Aadhaar numbers,
-                    bank account numbers, OTPs or passwords.
-
-                    If information is unavailable in the directory,
-                    clearly explain that it needs verification.
-
-                    Government scheme directory:
-
-                    {directory}
-                    """,
+                result = ask_gemini(
+                    system_prompt=system_prompt,
                     user_prompt=question
                 )
 
-                st.success(t["ai_success"])
+                st.success("AI response generated successfully!")
 
-                st.subheader(f"🤖 {t['response']}")
+                st.subheader(t["response"])
 
-                st.write(response_text)
+                st.write(result)
 
-            except Exception as exc:
+            except Exception as e:
 
-                st.error(
-                    f"Gemini AI request failed: {exc}"
-                )
+                st.error(f"Gemini AI request failed: {e}")
+
 
 # =====================================================
 # 14. FOOTER
@@ -828,19 +880,13 @@ st.divider()
 st.markdown(
     """
     <div style="text-align:center;">
-
-    🏛️ <b>GovScheme AI</b>
-
-    <br>
-
-    AI-Based Government Scheme Awareness
-    & Eligibility Analyzer
-
-    <br>
-
-    Developed for CSP Project
-    | Data Analytics for Community Development
-
+        🏛️ <b>GovScheme AI</b>
+        <br>
+        AI-Based Government Scheme Awareness
+        & Eligibility Analyzer
+        <br>
+        Developed for CSP Project
+        | Data Analytics for Community Development
     </div>
     """,
     unsafe_allow_html=True
